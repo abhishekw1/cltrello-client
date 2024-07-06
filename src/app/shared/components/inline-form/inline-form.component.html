@@ -1,0 +1,31 @@
+<div>
+  @if (!isEditing) {
+  <div (click)="activeEditing()">{{ defaultText }}</div>
+  } @if (isEditing) {
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    @if (inputType==='input') {
+    <input
+      type="text"
+      class="form-control"
+      formControlName="title"
+      [placeholder]="inputPlaceholder"
+    />
+    } @if (inputType==='textarea') {
+    <textarea
+      type="text"
+      class="form-control"
+      formControlName="title"
+      [placeholder]="inputPlaceholder"
+    ></textarea>
+    } @if (hasButton) {
+    <button
+      type="submit"
+      class="btn btn-secondary mt-3"
+      [disabled]="form.invalid"
+    >
+      {{ buttonText }}
+    </button>
+    }
+  </form>
+  }
+</div>

@@ -1,0 +1,54 @@
+<app-header></app-header>
+<div class="board-container mt-5 mx-2">
+  <div class="row gap-1">
+    <div class="col-6 col-sm-2">
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/boards" routerLinkActive="active"
+            >Board</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >Home</a
+          >
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-9">
+      <h3>My Boards</h3>
+      <div class="row">
+        <div class="col-12 col-sm-4">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                <app-inline-form
+                  [defaultText]="'Create new board'"
+                  (handleSubmit)="createBoard($event)"
+                ></app-inline-form>
+              </h5>
+            </div>
+          </div>
+        </div>
+        @for (board of boards; track $index) {
+        <div class="col-12 col-sm-4 my-1">
+          <a
+            [routerLink]="['/boards', board.id]"
+            class="link-underline link-underline-opacity-0"
+          >
+            <div class="card board">
+              <div class="card-body">
+                <h5 class="card-title">{{ board.title }}</h5>
+              </div>
+            </div>
+          </a>
+        </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

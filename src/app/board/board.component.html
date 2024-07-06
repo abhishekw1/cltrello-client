@@ -1,0 +1,83 @@
+<app-header></app-header>
+@if (data$ | async; as data) {
+
+<div class="container-fluid mt-5">
+  <h1 class="d-flex gap-3 align-items-center">
+    <app-inline-form
+      [defaultText]="data.board.title"
+      [title]="data.board.title"
+      (handleSubmit)="updateBoardName($event)"
+    ></app-inline-form>
+    <button
+      type="button"
+      class="btn btn-secondary btn-sm"
+      (click)="deleteBoard(data.board.id)"
+    >
+      Delete Board
+    </button>
+  </h1>
+  <div class="row">
+    @for (column of data.columns; track $index) {
+
+    <div class="col-12 col-sm-4 mb-3">
+      <a class="link-underline link-underline-opacity-0">
+        <div class="card column">
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <h5 class="card-title">
+                <app-inline-form
+                  [defaultText]="column.title"
+                  [title]="column.title"
+                  (handleSubmit)="updateColumnName($event, column.id)"
+                ></app-inline-form>
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                aria-label="Close"
+                (click)="deleteColumn(data.board.id, column.id)"
+              ></button>
+            </div>
+            <ul class="list-group">
+              @for (task of getTasksByColumn(column.id,data.tasks); track
+              $index) {
+              <li class="list-group-item" (click)="openTask(task.id)">
+                {{ task.title }}
+              </li>
+              }
+              <li class="list-group-item add-task-btn">
+                <app-inline-form
+                  [defaultText]="'Add a task'"
+                  [hasButton]="true"
+                  buttonText="Add task"
+                  (handleSubmit)="
+                    createTask($event, column.id, data.board.userId)
+                  "
+                ></app-inline-form>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </a>
+    </div>
+    }
+    <div class="col-12 col-sm-4 mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            <app-inline-form
+              [defaultText]="'Add a list'"
+              [hasButton]="true"
+              buttonText="Add list"
+              (handleSubmit)="createColumn($event)"
+            ></app-inline-form>
+          </h5>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+}
+
+<router-outlet></router-outlet>

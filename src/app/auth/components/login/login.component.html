@@ -1,0 +1,49 @@
+<div class="container-fluid p-5">
+  <app-logo></app-logo>
+  <main class="form-signin w-100 mx-auto my-5 card">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="needs-validation">
+      <h1 class="h5 mb-5 text-center">Login to Cltrello</h1>
+      @if (errorMsg) {
+      <div class="alert alert-danger" role="alert">
+        {{ errorMsg }}
+      </div>
+      }
+      <div class="form-floating mb-3 input-group-sm">
+        <input
+          type="email"
+          formControlName="email"
+          class="form-control"
+          id="floatingEmail"
+          placeholder="name@example.com"
+          [ngClass]="{ 'is-invalid': email?.touched && email?.invalid }"
+        />
+        <label for="floatingEmail">Email</label>
+        <div class="invalid-feedback">Email is required.</div>
+      </div>
+
+      <div class="form-floating mb-3">
+        <input
+          type="password"
+          formControlName="password"
+          class="form-control"
+          id="floatingPassword"
+          placeholder="Password"
+          [ngClass]="{ 'is-invalid': password?.touched && password?.invalid }"
+        />
+        <label for="floatingPassword">Password</label>
+        <div class="invalid-feedback">Password is required.</div>
+      </div>
+
+      <button class="btn btn-success w-100 py-2 mb-2" type="submit">
+        Login
+      </button>
+      <button
+        type="button"
+        class="btn btn-link w-100 py-2"
+        routerLink="/register"
+      >
+        Sign up
+      </button>
+    </form>
+  </main>
+</div>

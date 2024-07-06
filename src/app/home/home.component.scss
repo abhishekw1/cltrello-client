@@ -1,0 +1,101 @@
+.home-hero {
+  background: linear-gradient(135deg, #0079bf, #5067c5);
+}
+.home-container {
+  max-width: 1140px;
+  color: #fff;
+  display: flex;
+  margin: 0 auto;
+  align-items: center;
+  padding: 80px 36px 80px 36px;
+  justify-content: space-between;
+}
+
+.home-title {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.home-description {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.home-header {
+  position: fixed;
+  height: 72px;
+  z-index: 1;
+  width: 100%;
+  background-color: #0079bf;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .home-header-home-link img {
+    height: 40px;
+  }
+
+  .home-header-login {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-right: 20px;
+  }
+
+  .home-header-register {
+    color: #5067c5;
+    background: #fff;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 6px 10px;
+    text-decoration: none;
+    border-radius: 3px;
+    line-height: 26px;
+  }
+}
+
+.team-container {
+  color: #2c3e50;
+}
+
+.information-container {
+  color: #2c3e50;
+  gap: 1rem;
+  .hc-left {
+    max-width: 516px;
+    width: 100%;
+  }
+}
+
+.workflow-container {
+  color: #2c3e50;
+}
+
+.team-image {
+  max-width: 700px;
+}
+
+.workflow-left-part {
+  margin-right: 40px;
+}
+
+@media screen and (max-width: 558px) {
+  .home-container {
+    flex-direction: column-reverse;
+    .hc-left {
+      padding: 1rem;
+      .home-title {
+        font-size: 2rem;
+      }
+      .home-description {
+        font-size: 1.5rem;
+      }
+    }
+    .hc-right {
+      padding: 1rem;
+    }
+  }
+}

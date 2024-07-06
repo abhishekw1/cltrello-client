@@ -1,0 +1,18 @@
+.column {
+  background-color: #0079bf;
+  color: #ffff;
+  border: none;
+}
+
+.add-task-btn {
+  background: #dfdede;
+  font-weight: 600;
+  &:hover {
+    background-color: rgb(197, 197, 197);
+    cursor: pointer;
+  }
+}
+
+.btn-secondary {
+  height: fit-content;
+}

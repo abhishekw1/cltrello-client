@@ -1,0 +1,51 @@
+@if (data$ | async ; as data) {
+<div class="task-modal-container">
+  <div class="task-modal-header">
+    <app-inline-form
+      [defaultText]="data.task.title"
+      [title]="data.task.title"
+      (handleSubmit)="updateTaskName($event)"
+    ></app-inline-form>
+    <img
+      src="/assets/close_icon.svg"
+      class="task-modal-close"
+      (click)="goToBoard()"
+    />
+  </div>
+  <div class="task-modal-body">
+    <div>
+      <form class="column-select-container" [formGroup]="columnForm">
+        <select formControlName="columnId" class="form-select">
+          @for (column of data.columns; track $index) {
+          <option [value]="column.id">{{ column.title }}</option>
+          }
+        </select>
+      </form>
+      <div class="task-modal-description">
+        <div class="task-modal-description-label">Description</div>
+        <app-inline-form
+          [defaultText]="
+            data.task.description || 'Add a more detailed description'
+          "
+          inputType="textarea"
+          [title]="data.task.description || ''"
+          [hasButton]="true"
+          buttonText="Save"
+          (handleSubmit)="updateTaskDescription($event)"
+        ></app-inline-form>
+      </div>
+    </div>
+    <div class="task-modal-actions">
+      <div class="task-modal-actions-label">Actions</div>
+      <div>
+        <div class="task-modal-actions-action" (click)="deleteTask()">
+          <img src="/assets/trash.svg" class="task-modal-actions-icon" />
+          Delete
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="task-modal-backdrop"></div>
+
+}

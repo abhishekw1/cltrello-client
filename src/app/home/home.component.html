@@ -1,0 +1,91 @@
+<nav class="navbar navbar-expand-lg home-header">
+  <div class="container-fluid">
+    <app-logo
+      class="navbar-brand"
+      routerLink="/"
+      [colorInput]="'white'"
+    ></app-logo>
+
+    <ul class="navbar-nav flex-row gap-3">
+      <li class="nav-item">
+        <a class="nav-link home-header-login" routerLink="/login">Login</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link home-header-register" routerLink="/register"
+          >Register</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="home-hero">
+  <div class="home-container gap-3">
+    <div class="hc-left">
+      <h1 class="h1">
+        Cltrello helps teams work more collaboratively and get more done.
+      </h1>
+      <p>
+        Cltrello’s boards, lists, and cards enable teams to organize and
+        prioritize projects in a fun, flexible, and rewarding way.
+      </p>
+    </div>
+    <div class="hc-right">
+      <img src="/assets/hero.svg" class="img-fluid" />
+    </div>
+  </div>
+</div>
+
+<div class="home-team">
+  <div class="home-container team-container">
+    <div class="hc-left">
+      <h1 class="h1">Work with any team</h1>
+      <p>
+        Whether it’s for work, a side project or even the next family vacation,
+        Cltrello helps your team stay organized.
+      </p>
+    </div>
+    <div class="hc-right">
+      <img src="/assets/work-with-any-team.png" class="img-fluid" />
+    </div>
+  </div>
+</div>
+
+<div class="home-information">
+  <div class="home-container information-container">
+    <div class="hc-left">
+      <img src="/assets/information.svg" class="img-fluid" />
+    </div>
+    <div class="hc-right">
+      <h1 class="h1">Information at a glance</h1>
+      <p>
+        Dive into the details by adding comments, attachments, due dates, and
+        more directly to Cltrello cards. Collaborate on projects from beginning
+        to end.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="home-workflow">
+  <div class="home-container workflow-container">
+    <div class="workflow-left-part">
+      <h1 class="h1">Built-In Workflow Automation With Butler</h1>
+      <p>
+        Let the robots do the work! Boost spanroductivity by unleashing the
+        power of automation across your entire team with Butler, and remove
+        tedious tasks from your to-do lists with:
+      </p>
+      <ul>
+        <li>Rule-Based Triggers</li>
+        <li>Custom Card &amp; Board Buttons</li>
+        <li>Calendar Commands</li>
+        <li>Due Date Commands</li>
+      </ul>
+    </div>
+
+    <div>
+      <img src="/assets/workflow.png" class="img-fluid" />
+    </div>
+  </div>
+</div>

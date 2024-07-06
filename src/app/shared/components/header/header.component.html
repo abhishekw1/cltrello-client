@@ -1,0 +1,32 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <ul class="nav flex-row gap-3">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          ><img src="/assets/home.svg" alt="home" class="img-fluid"
+        /></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/boards" routerLinkActive="active"
+          ><img src="/assets/boards.svg" alt="boards" class="img-fluid"
+        /></a>
+      </li>
+    </ul>
+    <app-logo
+      class="navbar-brand"
+      routerLink="/"
+      [colorInput]="'white'"
+    ></app-logo>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <button type="button" class="btn btn-logout" (click)="onLogout()">
+          Logout
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
